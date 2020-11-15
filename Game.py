@@ -1,4 +1,4 @@
-import pygame,sys, math
+import pygame, sys, math
 
 def projectile(angle):
     angle = math.radians(angle)
@@ -73,7 +73,7 @@ class Stone(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, pos_x, pos_y):
         super().__init__()
-        self.enemy = pygame.image.load('enemy.png').convert_alpha()
+        self.enemy = pygame.image.load('Images/enemy.png').convert_alpha()
         self.image = pygame.transform.scale(self.enemy, (50, 50))
         self.rect = self.image.get_rect()
         self.rect.center = (pos_x, pos_y)
@@ -81,7 +81,7 @@ class Enemy(pygame.sprite.Sprite):
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.player = pygame.image.load('bird2.png').convert_alpha()
+        self.player = pygame.image.load('Images/bird2.png').convert_alpha()
         self.image = pygame.transform.scale(self.player, (30, 30))
         self.rect = self.image.get_rect()
         self.rect.center = (50,screen_height-110)
@@ -107,7 +107,7 @@ screen_height = 697
 screen = pygame.display.set_mode((screen_width,screen_height))
 pygame.display.set_caption("Angry Birds")
 
-background = pygame.image.load('background.jpg').convert()
+background = pygame.image.load('Images/background.jpg').convert()
 background_scale = pygame.transform.scale(background,(1240,697))
 
 
@@ -117,9 +117,9 @@ Bird_group.add(Bird)
 y = Bird.rect.y - 50
 x = Bird.rect.x + 50
 
-stone1 = Stone('stone.png', 55, 52, 760, screen_height - 120)
-stone2 = Stone('stone2.png', 55, 218, 900, screen_height - 207)
-stone3 = Stone('stone.png',55, 52, 1140, screen_height - 120)
+stone1 = Stone('Images/stone.png', 55, 52, 760, screen_height - 120)
+stone2 = Stone('Images/stone2.png', 55, 218, 900, screen_height - 207)
+stone3 = Stone('Images/stone.png',55, 52, 1140, screen_height - 120)
 stone_group = pygame.sprite.Group()
 stone_group.add([stone1, stone2, stone3])
 
@@ -130,26 +130,26 @@ enemy3 = Enemy(1140, screen_height- 170)
 enemy_group = pygame.sprite.Group()
 enemy_group.add([enemy1, enemy2, enemy3])
 
-sling_up = pygame.image.load('slingshot.png')
+sling_up = pygame.image.load('Images/slingshot.png')
 sling_scale_up = pygame.transform.scale(sling_up, (47, 81))
 sling_rect_up = sling_scale_up.get_rect(center=(85, screen_height- 139))
 
-flying = pygame.mixer.Sound('flying_sound.ogg')
-bird_destroyed = pygame.mixer.Sound('bird-destroyed.ogg')
-pig_destroyed = pygame.mixer.Sound('piglette-destroyed.ogg')
-bg_music = pygame.mixer.Sound('bg_music.ogg')
+flying = pygame.mixer.Sound('Music/flying_sound.ogg')
+bird_destroyed = pygame.mixer.Sound('Music/bird-destroyed.ogg')
+pig_destroyed = pygame.mixer.Sound('Music/piglette-destroyed.ogg')
+bg_music = pygame.mixer.Sound('Music/bg_music.ogg')
 bg_music.play(loops=-1)
 
-Stage0 = pygame.image.load("stage0.jpg").convert()
+Stage0 = pygame.image.load("Images/stage0.jpg").convert()
 Stage0_scaled = pygame.transform.scale(Stage0,(1240,697))
 game_font = pygame.font.Font('angrybirds-regular.ttf',30)
 angle_msg = game_font.render("Angle Control",True,(255,255,255))
 power_msg = game_font.render("Shoot", True, (255, 255, 255))
 info = game_font.render("Press any key to continue", True, (255, 255, 255))
 
-key_1 = pygame.transform.scale(pygame.image.load('up.jpg'),(51,53))
-key_2 = pygame.transform.scale(pygame.image.load('down.jpg'),(51,53))
-key_3 = pygame.transform.scale(pygame.image.load('space.jpg'),(100,39))
+key_1 = pygame.transform.scale(pygame.image.load('Images/up.jpg'),(51,53))
+key_2 = pygame.transform.scale(pygame.image.load('Images/down.jpg'),(51,53))
+key_3 = pygame.transform.scale(pygame.image.load('Images/space.jpg'),(100,39))
 
 while True:
     if stage == "stage0":
