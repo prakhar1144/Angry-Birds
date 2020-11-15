@@ -1,5 +1,5 @@
 # Angry-Birds
-### A Well Known Desktop Game
+### Desktop Game
 <br>
 <img src="https://github.com/prakhar1144/Angry-Birds/blob/master/Images/AB-1.png" alt="Image1" width="856"/>
 <br>
